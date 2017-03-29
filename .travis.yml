@@ -1,0 +1,16 @@
+language: objective-c
+osx_image: xcode8.3
+before_install:
+- brew update
+- brew outdated carthage || brew upgrade carthage
+script:
+- ./build.sh artman/Signals
+deploy:
+  provider: releases
+  api_key:
+    secure: jFnR/xelYctVwjZHUB6yM3XNGlFmGV8ucafrvHAjOrypkJCyHXkpWmjU6Ghl1z/p4znhEYTHhPaROL2xp2DZkFpfdgH+BYGqVzEgirSrIWNlh9ycXWTtETtr44TUbRo+jJ5Yaiwn1CAvoQA6wHEHYDvI4zPR4cxxNTLobMZO+KJ+/P7q27QNXWlQ4Ffjh52esPKgpIv8pLp+PHB8urVjpbtz5QYu/cTQbhP3LWo7r/d0ubURHRipSeQdD1eWxopMwvcA0zkXhDXnudk3xnrg2nRGpsbjppwS2bTv8xTUmyXzxoNnWk0RBfFwN9WhXAYv7UdihrxqUOjtn1z61OA9aAKxj1x3/gt4fRIdIhRXnIv+0liPfo7091uoH1NYUmW0I1L8GziawoVtzCDm6JWhYKG1VJRz4+/Pxka0FdpPXsPm51f6js9bt8o8F74wb/0NH2zrItKtuwQqCvkDDcItxRLd2murGeZmHpl6wKsp5slj2fDVKoD4R3layxg9OWY8bUE/W+kPCTyDzFM1QFaVagVZfYOKMxoBV9WJCvqwzQP0cULbbexh4wAc1q+4Y/810SyzW68le8wYrxOpOPR/iPxVAh5xUGv1VCHQO9ECMZTMDpHXCgNmf60cUfki7gsPv2J4tD76ooR2sKFBa35sHtZ1sqM0IKI4Nxa0qKPfTNM=
+  file_glob: true
+  file: Archives/*
+  skip_cleanup: true
+  on:
+    tags: true
